@@ -12,11 +12,17 @@
     <form action="login_process.php" method="post">
         <input type="text" name="userid" id="userid" placeholder="아이디"><br>
         <input type="password" name="userpw" id="userpw" placeholder="비밀번호"><br>
-        <input type="submit" value="로그인" id="login_submit">
+        <button type="button" class="login_modal_open">로그인</button>    
+        <div class="capcha">
+            <img src="image/1.jpg" alt="">
+            <input type="submit" value="확인" id="login_submit">
+        </div>
     </form>
-    
-
+    <script>
+        document.querySelector('.login_modal_open').addEventListener('click', function(){
+            document.querySelector('.capcha').style.display = 'block';
+        })
+    </script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="index.js"></script>
 </body>
 </html>

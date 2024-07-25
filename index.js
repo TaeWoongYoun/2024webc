@@ -46,43 +46,4 @@ document.addEventListener("DOMContentLoaded", function(){
             return false;
         }
     }
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const userid = document.getElementById('userid').value.trim();
-        const userpw = document.getElementById('userpw').value.trim();
-        
-        if (userid === "" || userpw === "") {
-            alert("아이디와 비밀번호를 입력해주세요.");
-            return;
-        }
-        
-        document.getElementById('captcha-modal').style.display = 'block';
-        
-        const bgImg = document.querySelector('.captcha-bg');
-        const pieceImg = document.getElementById('captcha-piece');
-        const slider = document.getElementById('slider');
-        
-        const bgWidth = bgImg.clientWidth;
-        const pieceWidth = pieceImg.clientWidth;
-        
-        const maxOffset = bgWidth - pieceWidth;
-        const pieceLeft = Math.floor(Math.random() * maxOffset);
-        
-        pieceImg.style.left = pieceLeft + 'px';
-        
-        slider.addEventListener('input', function() {
-            const sliderValue = this.value;
-            pieceImg.style.left = (pieceLeft + (maxOffset * sliderValue / 100)) + 'px';
-        });
-        
-        document.getElementById('verify-button').addEventListener('click', function() {
-            const currentLeft = parseInt(pieceImg.style.left, 10);
-            if (Math.abs(currentLeft - pieceLeft) < 10) {
-                document.getElementById('captcha-modal').style.display = 'none';
-                document.getElementById('login-form').submit();
-            } else {
-                alert("퍼즐을 맞춰주세요.");
-            }
-        });
-    });
 })
