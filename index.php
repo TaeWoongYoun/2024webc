@@ -10,7 +10,7 @@
 <body>
     <h1>C모듈</h1>
     <a href="join.php"><button class="join_btn">회원가입</button></a>
-    <button class="login_btn">로그인</button>
+    <a href="login.php"><button class="login_btn">로그인</button></a>
 
     <script src="index.js"></script>
 </body>

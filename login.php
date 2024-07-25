@@ -4,18 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입</title>
+    <title>로그인</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>회원가입</h1>
-    <form action="join_process.php" method="post" onsubmit="return ck(this)">
-        <input type="text" name="userid" id="userid" placeholder="아이디"><button type="button" id="check_id">중복확인</button><br>
-        <input type="hidden" id="idok" value="0">
-        <input type="text" name="name" id="name" placeholder="이름"><br>
+    <h1>로그인</h1>
+    <form action="login_process.php" method="post">
+        <input type="text" name="userid" id="userid" placeholder="아이디"><br>
         <input type="password" name="userpw" id="userpw" placeholder="비밀번호"><br>
-        <input type="submit" value="회원가입" id="join_submit">
+        <input type="submit" value="로그인" id="login_submit">
     </form>
+    
 
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="index.js"></script>
