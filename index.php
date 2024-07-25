@@ -17,7 +17,8 @@
             if ($row = mysqli_fetch_array($result)){
                 echo "
                     <button>{$row['name']}</button>
-                    <a href='index.php'><button>로그아웃</button></a>";
+                    <a href='index.php'><button>로그아웃</button></a>
+                    <button><a href='reservation.php?id=$id'>예약하기</a></button>";
             }
         } else {
             echo "
