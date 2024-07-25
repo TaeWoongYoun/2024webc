@@ -9,8 +9,22 @@
 </head>
 <body>
     <h1>C모듈</h1>
-    <a href="join.php"><button class="join_btn">회원가입</button></a>
-    <a href="login.php"><button class="login_btn">로그인</button></a>
+    <?php
+        if (isset($_GET['id'])) {
+            $id = mysqli_real_escape_string($conn, $_GET['id']);
+            $sql = "SELECT * FROM user WHERE userid = '$id'";
+            $result = mysqli_query($conn, $sql);
+            if ($row = mysqli_fetch_array($result)){
+                echo "
+                    <button>{$row['name']}</button>
+                    <a href='index.php'><button>로그아웃</button></a>";
+            }
+        } else {
+            echo "
+            <a href='login.php'><button class='login_btn'>로그인</button></a>
+            <a href='join.php'><button class='join_btn'>회원가입</button></a>";
+        }
+    ?>
 
     <script src="index.js"></script>
 </body>
