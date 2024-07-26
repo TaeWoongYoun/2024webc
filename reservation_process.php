@@ -1,7 +1,7 @@
 <?php $conn = mysqli_connect('localhost', 'root', '', 'Gyeonggi')?>
 
 <?php
-    echo $id = mysqli_real_escape_string($conn, $_POST['courseId']);
+    $id = mysqli_real_escape_string($conn, $_POST['courseId']);
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);

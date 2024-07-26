@@ -15,14 +15,14 @@
         $result = mysqli_query($conn, $sql);
         if ($id == 'admin'){ ?>
         <!-- 관리자 계정 -->
-            <?= require("./reservation_admin.php")?>
+            <?= require("./reservation/reservation_admin.php")?>
 
         <?php } elseif ($id == 'guide1' || $id == 'guide2'){ ?>
         <!-- 해설자 계정 -->
             <p>안녕 나 해설자</p>
         <?php } else { ?>
         <!-- 일반회원 계정 -->
-            <?= require("./reservation_user.php")?>
+            <?= require("./reservation/reservation_user.php")?>
         <?php } 
     ?>
 
