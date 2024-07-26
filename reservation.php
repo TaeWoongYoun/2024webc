@@ -84,20 +84,23 @@
                             <p style='padding-left: 10px;'>코스 일정 : {$courseRow['date']}</p>
                             <p style='padding-left: 10px;'>시작 시간 : {$startTime}시</p>
                             <p style='padding-left: 10px;'>현재인원 : {$courseRow['member']}</p>
-                            <button style='float:right;' onclick='openModal({$courseRow['id']})' {$isDisabled}>예약하기</button>
+                            <button style='float:right;' class='reservation_btn' onclick='openModal()' {$isDisabled}>예약하기</button>
                         </div>";
                     }
                 ?>
             </div>
-            <div class="reservation_modal">
-                <h5>예약하기</h5>
-                <form action="reservation.php" method="post">
-                    <input type="text" name="name" id="name" placeholder="이름"> <br>
-                    <input type="text" name="phone" id="phone" placeholder="전화번호"> <br>
-                    <input type="email" name="email" id="email" placeholder="이메일"> <br>
-                    <input type="number" name="member" id="member" min='1' max='5' placeholder="참가 인원"> <br>
-                    <button type="submit">예약하기</button>
-                </form>
+            <div id="reservationModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <h5>예약하기</h5>
+                    <form action="reservation_process.php" method="post" onsubmit="return validateForm()">
+                        <input type="hidden" name="courseId" id="courseId" value="<?=$_GET['id']?>">
+                        <input type="text" name="name" id="name" placeholder="이름"> <br>
+                        <input type="text" name="phone" id="phone" placeholder="전화번호"> <br>
+                        <input type="email" name="email" id="email" placeholder="이메일"> <br>
+                        <input type="number" name="member" id="member" min='1' max='5' placeholder="참가 인원"> <br>
+                        <button type="submit">예약하기</button>
+                    </form>
+                </div>
             </div>
         <?php } 
     ?>
@@ -115,23 +118,19 @@
         }
 
         function openModal(courseId) {
-            var modal = document.getElementById("myModal");
-            document.getElementById("courseId").value = courseId;
+            var modal = document.getElementById("reservationModal");
+            var courseIdInput = document.getElementById("courseId");
+            courseIdInput.value = courseId;
             modal.style.display = "block";
-        }
-
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
         }
 
         function validateForm() {
             var name = document.getElementById("name").value;
             var phone = document.getElementById("phone").value;
             var email = document.getElementById("email").value;
-            var participants = document.getElementById("participants").value;
+            var member = document.getElementById("member").value;
 
-            if (name === "" || phone === "" || email === "" || participants === "") {
+            if (name === "" || phone === "" || email === "" || member === "") {
                 alert("모든 필드를 입력해주세요.");
                 return false;
             }
