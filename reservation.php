@@ -19,7 +19,7 @@
 
         <?php } elseif ($id == 'guide1' || $id == 'guide2'){ ?>
         <!-- 해설자 계정 -->
-            <p>안녕 나 해설자</p>
+            <?= require("./reservation/reservation_guide.php")?>
         <?php } else { ?>
         <!-- 일반회원 계정 -->
             <?= require("./reservation/reservation_user.php")?>
@@ -56,6 +56,13 @@
                 return false;
             }
         }
-    </script>
+
+        document.querySelectorAll('.guide_btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                alert("해설신청이 완료되었습니다.");
+            });
+        });
+
+</script>
 </body>
 </html>
