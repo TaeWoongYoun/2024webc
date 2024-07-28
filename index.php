@@ -19,15 +19,22 @@
                     <button>{$row['name']}</button>
                     <a href='index.php'><button>로그아웃</button></a>
                     <button><a href='reservation.php?id=$id'>예약하기</a></button>
-                    <button><a href='goods.php?id=$id'>굿즈SHOP</a></button>";
+                    <button><a href='goods.php?id=$id'>굿즈SHOP</a></button>
+                    <button><a href='mypage.php?id=$id'>마이페이지</a></button>";
             }
         } else {
             echo "
             <a href='login.php'><button class='login_btn'>로그인</button></a>
-            <a href='join.php'><button class='join_btn'>회원가입</button></a>";
+            <a href='join.php'><button class='join_btn'>회원가입</button></a>
+            <button class='bug'>마이페이지</button>";
         }
     ?>
 
+    <script>
+        document.querySelector('.bug').addEventListener('click', function(){
+            alert("로그인한 회원만 접근 가능합니다.");
+        })
+    </script>
     <script src="index.js"></script>
 </body>
 </html>
