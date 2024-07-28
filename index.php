@@ -20,7 +20,8 @@
                     <a href='index.php'><button>로그아웃</button></a>
                     <button><a href='reservation.php?id=$id'>예약하기</a></button>
                     <button><a href='goods.php?id=$id'>굿즈SHOP</a></button>
-                    <button><a href='mypage.php?id=$id'>마이페이지</a></button>";
+                    <button><a href='mypage.php?id=$id'>마이페이지</a></button>
+                    <button><a href='calender.php?id=$id'>문화달력페이지</a></button>";
             }
         } else {
             echo "
