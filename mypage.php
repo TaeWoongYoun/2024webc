@@ -15,8 +15,6 @@
         $result = mysqli_query($conn, $sql);
         if ($id == 'admin'){ ?>
         <!-- 관리자 계정 -->
-            <?= require("./reservation/reservation_admin.php")?>
-
         <?php } elseif ($id == 'guide1' || $id == 'guide2'){ ?>
         <!-- 해설자 계정 -->
             <h3>해설신청 내역</h3>
